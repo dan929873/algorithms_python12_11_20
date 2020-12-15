@@ -3,4 +3,22 @@
 # Примечание: задачу можно решить без сортировки исходного массива. Но если это слишком сложно, используйте метод сортировки,
 # который не рассматривался на уроках (сортировка слиянием также недопустима).
 
+import random
+size = 2
+my_list = [random.randint(0, 100) for _ in range(2*size+1)]
+print(my_list)
 
+def med(list):
+
+    for i in list:
+        less = more = 0
+        for j in range(len(list)):
+            if i < list[j]:
+                less += 1
+            elif i > list[j]:
+                more +=1
+
+        if more == less:
+            return i
+
+print(med(my_list))
