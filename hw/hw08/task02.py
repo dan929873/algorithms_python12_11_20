@@ -21,14 +21,11 @@ def Dijkstra(graph, start):
 
     while min_cost < float('inf'):
         is_visited[start] = True
-        i = 0
         for index, vertex in enumerate(graph[start]):
             if vertex != 0 and not is_visited[index]:
                 if cost[index] > vertex+cost[start]:
                     cost[index] = vertex + cost[start]
-                    parent[i] = start
-            i += 1
-
+                    parent[index] = start
 
         min_cost = float('inf')
         for index in range(length):
@@ -36,11 +33,21 @@ def Dijkstra(graph, start):
                 min_cost = cost[index]
                 start = index
 
-    return cost
+    my_list_parens = [[] for _ in range(length)]
+    for i in range(length):
+        if is_visited[i]:
+            my_list_parens[i].append(i)
+            j = i
+            while parent[j] != -1:
+                my_list_parens[i].append(parent[j])
+                j = parent[j]
 
+            my_list_parens[i].reverse()
 
+    return cost, my_list_parens
 
+s = int (input('от какой вершины идти: '))
 
-# s = int (input('от какой вершины идти: '))
-s=0
-print(Dijkstra(q, s))
+cost, par = Dijkstra(q, s)
+print(cost)
+print(*par, sep='\n')
