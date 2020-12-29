@@ -14,5 +14,5 @@ def count_sub(s:str):
     count = len(set_hash) - 1
     return count
 
-my_str = input("Введите строку: ")
+my_str = input("Введите вашу строку: ")
 print(f'В строке: "{my_str}" есть {count_sub(my_str)} различных подстрок')
