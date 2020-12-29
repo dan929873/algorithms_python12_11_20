@@ -4,7 +4,7 @@
 # который не рассматривался на уроках (сортировка слиянием также недопустима).
 
 import random
-size = 2
+size = 10
 my_list = [random.randint(0, 100) for _ in range(2*size+1)]
 print(my_list)
 
@@ -22,3 +22,4 @@ def med(list):
             return i
 
 print(med(my_list))
+print(sorted(my_list))
